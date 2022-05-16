@@ -71,28 +71,6 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
 }
 
-@media screen and (min-width: 768px) {
-  .heading {
-    padding-top: 120px;
-    position: relative;
-    z-index: 5;
-  }
-  .heading h1 {
-    margin-bottom: 260px;
-  }
-
-  .quiz {
-    padding: 74px 0 120px;
-  }
-
-  .quiz_heading {
-    margin-bottom: 80px;
-  }
-
-  .answer_list {
-    margin: 80px auto;
-  }
-}
 body {
   font-family: Manrope, sans-serif;
   font-size: 22px;
@@ -108,7 +86,7 @@ h1, h2, h3, a, span, button {
 }
 
 h1 {
-  font-size: 106px;
+  font-size: 70px;
   color: #038080;
 }
 
@@ -122,7 +100,7 @@ h2 {
 }
 
 p {
-  font-size: 24px;
+  font-size: 22px;
   line-height: 1.5em;
 }
 
@@ -174,6 +152,7 @@ span, a, button {
 
 .start_page {
   height: 100vh;
+  padding-top: 60px;
   background-repeat: no-repeat;
   background-position: left;
   background-size: cover;
@@ -181,9 +160,6 @@ span, a, button {
   background-image: url("data:image/svg+xml,%3Csvg width='2047' height='2089' viewBox='0 0 2047 2089' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1083.02 1454.31C1410.05 1595.11 1604.58 1112.03 1455.04 1459.36C1305.5 1806.68 919.169 1974.1 592.139 1833.3C265.11 1692.5 121.225 1296.8 270.764 949.473C420.303 602.148 755.992 1313.51 1083.02 1454.31Z' fill='%23FFEAB7'/%3E%3Cpath d='M921.715 630.679C563.552 509.372 408.97 1006.69 530.278 648.529C651.586 290.366 1040.27 98.3569 1398.44 219.664C1756.6 340.972 1948.61 729.66 1827.3 1087.82C1705.99 1445.99 1279.88 751.987 921.715 630.679Z' fill='%23FFEAB7'/%3E%3C/svg%3E");
 }
 
-.heading {
-  padding-top: 60px;
-}
 .heading h1 {
   margin-bottom: 100px;
 }
@@ -241,18 +217,20 @@ span, a, button {
 .progress_bar {
   display: flex;
   justify-content: center;
+  align-items: center;
 }
 
 .progress {
   max-width: 370px;
   width: 100%;
+  height: 22px;
   background: #fff;
   border-radius: 16px;
 }
 
 .indicator {
   height: 100%;
-  width: 33%;
+  width: 0;
   background: #31CD63;
   border-radius: 16px;
 }
@@ -263,6 +241,7 @@ span, a, button {
 
 .question_block {
   max-width: 600px;
+  padding: 0 10px;
   height: 200px;
   width: 100%;
   margin: 0 auto;
@@ -308,13 +287,13 @@ span, a, button {
   border-radius: 50%;
   background: #EDE8E3;
 }
-.answer.a p::before {
+.answer .a::before {
   content: "A";
 }
-.answer.b p::before {
+.answer .b::before {
   content: "B";
 }
-.answer.c p::before {
+.answer .c::before {
   content: "C";
 }
 
@@ -331,7 +310,12 @@ span, a, button {
 }
 
 .results {
-  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
   padding-top: 40px;
   text-align: center;
   background-repeat: no-repeat;
@@ -339,11 +323,18 @@ span, a, button {
   background-size: cover;
   background-color: #EB80B0;
   background-image: url("data:image/svg+xml,%3Csvg width='768' height='575' viewBox='0 0 768 575' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M82.5852 568.111C37.5303 586.25 1.66685 564.525 -18 549.41L-18 -134L786.553 -134L787 482.751C787 482.751 720.864 525.486 642.197 545.438C563.529 565.39 542.521 509.052 486.203 512.226C429.884 515.4 423.179 560.293 352.111 560.293C268.079 560.293 257.352 522.752 213.102 524.469C159.912 526.533 138.904 545.438 82.5852 568.111Z' fill='white'/%3E%3C/svg%3E");
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 .results .progress {
   background: #F4F3F6;
-  height: 22px;
   margin: 0 auto 40px auto;
+}
+.results.finish {
+  visibility: visible;
+  opacity: 1;
 }
 
 .results_heading h2 {
@@ -394,6 +385,33 @@ span, a, button {
 
 .back_btn {
   margin: 0 auto;
+}
+
+@media screen and (min-width: 768px) {
+  .start_page {
+    padding-top: 120px !important;
+  }
+
+  .heading {
+    position: relative;
+    z-index: 5;
+  }
+  .heading h1 {
+    margin-bottom: 200px;
+    font-size: 106px;
+  }
+
+  .quiz {
+    padding: 74px 0 120px;
+  }
+
+  .quiz_heading {
+    margin-bottom: 80px;
+  }
+
+  .answer_list {
+    margin: 80px auto;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
