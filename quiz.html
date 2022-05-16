@@ -10,6 +10,10 @@
   <meta property="og:title" content="English Quiz">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="English Quiz">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Manrope:wght@400;700&display=swap" rel="stylesheet">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="img/favicon.svg">
   <!-- CSS -->
@@ -17,6 +21,35 @@
 </head>
 <body>
 
+  <main>
+    <section class="quiz">
+      <div class="container">
+        <div class="quiz_heading">
+          <h2>English Quiz</h2>
+          <div class="progress_bar">
+            <div class="progress">
+              <div class="indicator"></div>
+            </div>
+            <span class="progress_count">1/5</span>
+          </div>
+        </div>
 
+        <div class="question_block">
+          <p>Last night we .... to disco.</p>
+        </div>
+
+        <ul class="answer_list">
+          <li class="answer a"><p>went</p></li>
+          <li class="answer b"><p>went</p></li>
+          <li class="answer c"><p>went</p></li>
+        </ul>
+        <button type="button" class="next_btn btn">Next</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- JS -->
+  <script src="js/script.js"></script>
+  
 </body>
 </html>
