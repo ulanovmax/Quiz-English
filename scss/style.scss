@@ -28,9 +28,15 @@ body {
   font-size: 22px;
   font-weight: 700;
   color: $text;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
   &.overflow {
     overflow: hidden;
   }
+}
+
+main {
+  position: relative;
 }
 
 h1,h2,h3,a,span,button{
@@ -120,27 +126,30 @@ span,a,button {
   bottom: 0;
   right: 100%;
   width: 200px;
-  animation: run 3s linear;
+  animation: rideLeft 3s linear;
   display: flex;
-    &::after {
-      content: "";
-      display: block;
-      width: 100%;
-      height: 20px;
-      background: #fff;
-    }
   @media screen and (min-width: 768px) {
     width: 400px;
   }
 }
 
-@keyframes run {
+@keyframes rideLeft {
   0% {
     right: -100%;
   }
 
   100% {
     right: 100%;
+  }
+}
+
+@keyframes rideTop {
+  0% {
+    bottom: -100%;
+  }
+
+  100% {
+    bottom: 110%;
   }
 }
 
@@ -212,37 +221,79 @@ span,a,button {
 
 .answer {
   width: 100%;
-  padding: 16px 0 16px 26px;
+  height: 80px;
+  display: flex;
+  align-items: center;
   border-radius: 46px;
   background: #fff;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
   @include transiton(background);
   &:hover {
     background: #F4F3F6;
   }
-  p {
+  &::before {
+    content: "";
+    color: $text;
     display: flex;
     align-items: center;
-    gap: 20px;
-    &::before {
-      content: "";
-      color: $text;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: #EDE8E3;
-    }
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 20px;
+    background: #EDE8E3;
   }
-  .a::before {
+  &.a::before {
     content: "A";
   } 
-  .b::before {
+  &.b::before {
     content: "B";
   }
-  .c::before {
+  &.c::before {
     content: "C";
+  }
+  &.correct {
+    background: #45C486;
+    color: #fff;
+    &::before {
+      content: '\2713';
+      color: #45C486;
+    }
+  }
+  &.mistake {
+    background: #FA3A5D;
+    color: #fff;
+    &::before {
+      content: '\2717';
+      color: #FA3A5D;
+    }
+  }
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+.warning {
+  background: #fff;
+  width: 294px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 46px;
+  position: relative;
+  transform: translateY(100px);
+  margin-left: auto;
+  @include transiton(transform);
+  span {
+    font-size: 30px;
+    color: #FA3A5D;
+  }
+  &.show {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -262,20 +313,17 @@ span,a,button {
 
 .results {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -100%;
+  right: 0;
   width: 100%;
   height: 100%;
   z-index: 1000;
   padding-top: 40px;
   text-align: center;
   @include bg(bottom, cover);
-  background-color: $pink;
-  background-image: url("data:image/svg+xml,%3Csvg width='768' height='575' viewBox='0 0 768 575' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M82.5852 568.111C37.5303 586.25 1.66685 564.525 -18 549.41L-18 -134L786.553 -134L787 482.751C787 482.751 720.864 525.486 642.197 545.438C563.529 565.39 542.521 509.052 486.203 512.226C429.884 515.4 423.179 560.293 352.111 560.293C268.079 560.293 257.352 522.752 213.102 524.469C159.912 526.533 138.904 545.438 82.5852 568.111Z' fill='white'/%3E%3C/svg%3E");
-  visibility: hidden;
+  background-color: #fff;
   opacity: 0;
-  @include transiton(visibility);
-  @include transiton(opacity);
+  @include transiton(top);
   .progress {
     background: #F4F3F6;
     margin: 0 auto 40px auto;
@@ -283,6 +331,7 @@ span,a,button {
   &.finish {
     visibility: visible;
     opacity: 1;
+    top: 0;
   }
 }
 
