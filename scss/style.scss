@@ -56,7 +56,7 @@ h2 {
 }
 
 p {
-  font-size: 22px;
+  font-size: 20px;
   line-height: 1.5em;
 }
 
@@ -95,7 +95,7 @@ span,a,button {
     box-shadow: none;
     transform: translate(5px, 5px);
   }
-  @media screen and (min-width: 480px) {
+  @media screen and (min-width: 1024px) {
     font-size: 50px;
     max-width: 500px;
     padding: 16px 0;
@@ -157,7 +157,7 @@ span,a,button {
 
 .quiz {
   padding: 35px 0 80px;
-  // height: 100vh;
+  min-height: 100vh;
   @include bg(center top, cover);
   background-color: $maingreen;
   background-image: url('../img/brush.svg');
@@ -166,7 +166,7 @@ span,a,button {
 .quiz_heading {
   color: #fff;
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 36px;
   h2 {
     margin-bottom: 20px;
   }
@@ -181,7 +181,7 @@ span,a,button {
 .progress {
   max-width: 370px;
   width: 100%;
-  height: 22px;
+  height: 18px;
   background: #fff;
   border-radius: 16px;
 }
@@ -196,12 +196,13 @@ span,a,button {
 
 .progress_count {
   margin-left: 10px;
+  font-size: 20px;
 }
 
 .question_block {
   max-width: 600px;
   padding: 0 10px;
-  height: 200px;
+  height: 180px;
   width: 100%;
   margin: 0 auto;
   display: flex;
@@ -222,7 +223,7 @@ span,a,button {
 
 .answer {
   width: 100%;
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
   border-radius: 46px;
@@ -230,6 +231,7 @@ span,a,button {
   cursor: pointer;
   position: relative;
   z-index: 10;
+  font-size: 18px;
   @include transiton(background);
   &:hover {
     background: #F4F3F6;
@@ -240,8 +242,8 @@ span,a,button {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     margin: 0 20px;
     background: #EDE8E3;
@@ -274,26 +276,21 @@ span,a,button {
   &.disabled {
     pointer-events: none;
   }
+
 }
 
 .warning {
-  background: #fff;
-  width: 294px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 46px;
+  text-align: center;
+  font-size: 25px;
+  color: #FA3A5D;
+  margin: 0 auto;
+  box-shadow: none;
   position: relative;
-  transform: translateY(100px);
-  margin-left: auto;
+  z-index: 1;
+  transform: translateY(-50px);
   @include transiton(transform);
-  span {
-    font-size: 30px;
-    color: #FA3A5D;
-  }
   &.show {
-    transform: translateY(0);
+    transform: translateY(20px);
     opacity: 1;
   }
 }
@@ -304,6 +301,8 @@ span,a,button {
   color: #fff;
   box-shadow: 5px 10px 0 #005F5F;
   margin: 0 auto;
+  position: relative;
+  z-index: 5;
   @include transiton(background);
   &.confirm {
     background: $lightgreen;
@@ -348,6 +347,10 @@ span,a,button {
   margin: 35px 0;
 }
 
+.review {
+  margin-bottom: 50px;
+}
+
 .review_text {
   font-size: 40px;
   margin-bottom: 30px;
@@ -364,7 +367,7 @@ span,a,button {
   align-items: center;
   max-width: 100px;
   justify-content: space-between;
-  margin: 0 auto 100px auto;
+  margin: 0 auto;
 }
 
 .social_link {
@@ -410,37 +413,50 @@ span,a,button {
   // Quiz
 
   .quiz {
-    padding: 74px 0 120px;
+    padding: 50px 0 120px;
   }
   
   .quiz_heading {
     margin-bottom: 80px;
   }
 
-  .progress_bar {
-  }
-  .progress {
-  }
-  .indicator {
-  }
-  .progress_count {
-  }
-  .question_block {
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  p {
+    font-size: 22px;
   }
 
   .answer {
-  }
-  .a {
-  }
-  .b {
-  }
-  .c {
-  }
-  .next_btn {
-  }
-  .btn {
+    height: 80px;
+    font-size: 22px;
+    &::before {
+      width: 50px;
+      height: 50px;
+    }
   }
 
+  .warning {
+    max-width: 260px;
+  }
+
+  .quiz_heading {
+    margin-bottom: 40px;
+  }
+  
+  .progress {
+    height: 22px;
+  }
+
+  .progress_count {
+    font-size: 22px;
+  }
+  
+  .question_block {
+    height: 200px;
+  }
 }
 
 

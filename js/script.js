@@ -111,11 +111,8 @@ answerList.addEventListener('click', e => {
     }
   }
   disabled();
-  answerList.querySelector('.warning').classList.remove('show');
+  document.querySelector('.warning').classList.remove('show');
 });
-
-
-
 
 
 function disabled() {
@@ -133,12 +130,11 @@ function enabled() {
     answer.classList.remove('disabled', 'correct', 'mistake')
   });
   nextBtn.classList.remove('confirm');
-  // progressBar.style.width = 100 * ((questionIndex + 1 ) / questions.length) + '%';
 }
 
 function validate() {
   if (!answers[0].classList.contains('disabled')) {
-    answerList.querySelector('.warning').classList.add('show');
+    document.querySelector('.warning').classList.add('show');
   } else {
     randowQuestion()
     enabled()
@@ -156,10 +152,12 @@ function finish() {
     scoreResult.textContent = 'Incredible!'
   } else if (score >= Math.round(questions.length / 2)) {
     scoreResult.textContent = 'Well done!'
+  } else if (score == 0) {
+    scoreResult.textContent = 'Maybe another time...'
   } else if (score < 2) {
     scoreResult.textContent = 'You can do better!'
   }
-
+  
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
