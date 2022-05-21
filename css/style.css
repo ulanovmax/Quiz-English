@@ -241,6 +241,7 @@ span, a, button {
   width: 0;
   background: #31CD63;
   border-radius: 16px;
+  transition: width 0.3s ease;
 }
 
 .progress_count {
@@ -266,7 +267,7 @@ span, a, button {
   width: 100%;
   display: grid;
   gap: 30px;
-  margin: 60px auto;
+  margin: 25px auto;
 }
 
 .answer {
@@ -455,10 +456,6 @@ span, a, button {
 
   .quiz_heading {
     margin-bottom: 80px;
-  }
-
-  .answer_list {
-    margin: 80px auto;
   }
 }
 

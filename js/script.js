@@ -7,10 +7,12 @@ const mainQuestion = document.querySelector('.question'),
       answer2 = answerList.querySelector('.b'),
       answer3 = answerList.querySelector('.c'),
       nextBtn = document.querySelector('.next_btn'),
-      progressBar = document.querySelector('.indicator'),
-      progressCount = document.querySelector('.progress_count'),
       resultsPage = document.querySelector('.results'),
-      scoreElement = document.querySelector('.score');
+      scoreResult = document.querySelector('.review_text'),
+      scoreElement = document.querySelector('.score'),
+      progressBar = document.querySelector('.indicator'),
+      progressScore = document.querySelector('.indicator_score'),
+      progressCount = document.querySelector('.progress_count');
 
 let pageIndex = 0, // Index of page
     questionIndex = 0, // Index of question
@@ -51,8 +53,6 @@ window.addEventListener('load', () => {
   randowQuestion();
 }) 
 
-console.log((questionIndex + 1 )/ questions.length);
-
   
 // Data output
 function loadContent() {
@@ -63,8 +63,9 @@ function loadContent() {
   answer2.innerHTML = questions[questionIndex].options[1];
   answer3.innerHTML = questions[questionIndex].options[2];
 
-  pageIndex++;
+  progressBar.style.width = 100 * ((pageIndex + 1 ) / questions.length) + '%';
 
+  pageIndex++;
 }
 
 // Random question
@@ -99,7 +100,6 @@ function randowQuestion() {
 }
 
 
-
 answerList.addEventListener('click', e => {
   const targ = e.target;
   if (targ && targ.matches('.answer')) {
@@ -112,8 +112,10 @@ answerList.addEventListener('click', e => {
   }
   disabled();
   answerList.querySelector('.warning').classList.remove('show');
- 
-})
+});
+
+
+
 
 
 function disabled() {
@@ -123,7 +125,7 @@ function disabled() {
       answer.classList.add('correct');
     }
   })
-  nextBtn.classList.add('confirm')
+  nextBtn.classList.add('confirm');
 }
 
 function enabled() {
@@ -131,6 +133,7 @@ function enabled() {
     answer.classList.remove('disabled', 'correct', 'mistake')
   });
   nextBtn.classList.remove('confirm');
+  // progressBar.style.width = 100 * ((questionIndex + 1 ) / questions.length) + '%';
 }
 
 function validate() {
@@ -147,6 +150,16 @@ nextBtn.addEventListener('click', validate)
 function finish() {
   resultsPage.classList.add('finish');
   scoreElement.innerHTML = `${score} / ${questions.length}`;
+  progressScore.style.width = 100 * (score / questions.length) + '%';
+
+  if (score == questions.length) {
+    scoreResult.textContent = 'Incredible!'
+  } else if (score >= Math.round(questions.length / 2)) {
+    scoreResult.textContent = 'Well done!'
+  } else if (score < 2) {
+    scoreResult.textContent = 'You can do better!'
+  }
+
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
