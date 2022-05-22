@@ -1,0 +1,185 @@
+{
+  "questions" : [
+
+    {
+      "question":"She was a devoted wife and looked .... her husband.",
+      "options":[
+        "at",
+        "upon",
+        "after"
+      ],
+      "correct":2
+    },
+    {
+      "question":"Good sleep is necessary .... good health.",
+      "options":[
+        "for",
+        "from",
+        "of"
+      ],
+      "correct":0
+    },
+    {
+      "question":"Try .... as many languages as possible.",
+      "options":[
+        "learnt",
+        "to learn",
+        "learning"
+      ],
+      "correct":1
+    },
+    {
+      "question":"It is not easy .... all people",
+      "options":[
+        "please",
+        "to be pleased",
+        "to please"
+      ],
+      "correct":2
+    },
+    {
+      "question":"Suganya is not capable of .... hard work.",
+      "options":[
+        "doing",
+        "to be done",
+        "do"
+      ],
+      "correct":0
+    },
+    {
+      "question":"I remember .... you last year.",
+      "options":[
+        "meet",
+        "meeting",
+        "to meet"
+      ],
+      "correct":1
+    },
+    {
+      "question":"I want the book .... in a week.",
+      "options":[
+        "writes",
+        "written",
+        "was written"
+      ],
+      "correct":1
+    },
+    {
+      "question":"The girls became .... on seeing the eclipse.",
+      "options":[
+        "excite",
+        "excited",
+        "exciting"
+      ],
+      "correct":1
+    },
+    {
+      "question":"Please get ....",
+      "options":[
+        "lost",
+        "losing",
+        "lose"
+      ],
+      "correct":0
+    },
+    {
+      "question":"My father will retire from service .... a year.",
+      "options":[
+        "in",
+        "on",
+        "by"
+      ],
+      "correct":0
+    },
+    {
+      "question":"Most of us eat .... a spoon.",
+      "options":[
+        "by",
+        "for",
+        "with"
+      ],
+      "correct":2
+    },
+    {
+      "question":"Prasanna would have reached Bangalore by this time.",
+      "options":[
+        "present perfect",
+        "past perfect",
+        "future perfect"
+      ],
+      "correct":2
+    },
+    {
+      "question":"Mahatma Gandhi was born in Porbandar.",
+      "options":[
+        "simple past",
+        "simple future",
+        "past continuous"
+      ],
+      "correct":0
+    },
+    {
+      "question":"My uncle has invested a lot of money .... farming.",
+      "options":[
+        "in",
+        "for",
+        "into"
+      ],
+      "correct":0
+    },
+    {
+      "question":"New York is .... large city",
+      "options":[
+        "the",
+        "a",
+        "an"
+      ],
+      "correct":1
+    },
+    {
+      "question":"She wants to become .... engineer",
+      "options":[
+        "a",
+        "the",
+        "an"
+      ],
+      "correct":2
+    },
+    {
+      "question":"Woman",
+      "options":[
+        "womens",
+        "women",
+        "womans"
+      ],
+      "correct":1
+    },
+    {
+      "question":"My sister cooks",
+      "options":[
+        "rise",
+        "rice",
+        "raise"
+      ],
+      "correct":1
+    },
+    {
+      "question":"Loss",
+      "options":[
+        "loss",
+        "loses",
+        "losses"
+      ],
+      "correct":2
+    },
+    {
+      "question":"Don't stand .... a tree when there is a lightning.",
+      "options":[
+        "under",
+        "over",
+        "below"
+      ],
+      "correct":0
+    }
+  ]
+}
