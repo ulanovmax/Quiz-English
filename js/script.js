@@ -1,29 +1,36 @@
 
-const mainQuestion = document.querySelector('.question'),
-      answerList = document.querySelector('.answer_list'),
-      answers = document.querySelectorAll('.answer'),
-      answer = document.querySelector('.answer'),
-      answer1 = answerList.querySelector('.a'),
-      answer2 = answerList.querySelector('.b'),
-      answer3 = answerList.querySelector('.c'),
-      nextBtn = document.querySelector('.next_btn'),
-      resultsPage = document.querySelector('.results'),
-      scoreResult = document.querySelector('.review_text'),
-      scoreElement = document.querySelector('.score'),
-      progressBar = document.querySelector('.indicator'),
-      progressScore = document.querySelector('.indicator_score'),
-      progressCount = document.querySelector('.progress_count');
+const 
+
+mainQuestion = document.querySelector('.question'),
+// Answers
+answerList = document.querySelector('.answer_list'),
+answers = document.querySelectorAll('.answer'),
+answer = document.querySelector('.answer'), 
+answer1 = answerList.querySelector('.a'),
+answer2 = answerList.querySelector('.b'),
+answer3 = answerList.querySelector('.c'),
+// Button
+nextBtn = document.querySelector('.next_btn'),
+// Result page
+resultsPage = document.querySelector('.results'),
+scoreResult = document.querySelector('.review_text'),
+scoreElement = document.querySelector('.score'),
+progressScore = document.querySelector('.indicator_score'),
+// Progress Bar
+progressBar = document.querySelector('.indicator'),
+progressCount = document.querySelector('.progress_count');
 
 let pageIndex = 0, // Index of page
     questionIndex = 0, // Index of question
     score = 0; // Amount of correct answers
 
-
+// Get Questions list
 const getQuestions = async (url) => {
   const data = await fetch(url);
   return await data.json();
 }
 
+// Init questions
 getQuestions('js/questions.json')
   .then(data => {
     const questions = data.questions;
@@ -74,6 +81,7 @@ getQuestions('js/questions.json')
     }
     
     randowQuestion();
+
     
     answerList.addEventListener('click', e => {
       const targ = e.target;
@@ -89,7 +97,7 @@ getQuestions('js/questions.json')
       document.querySelector('.warning').classList.remove('show');
     });
     
-    
+    // Disabled buttons
     function disabled() {
       answers.forEach(answer => {
         answer.classList.add('disabled');
@@ -100,6 +108,7 @@ getQuestions('js/questions.json')
       nextBtn.classList.add('confirm');
     }
     
+    // Enabled buttons
     function enabled() {
       answers.forEach(answer => {
         answer.classList.remove('disabled', 'correct', 'mistake')
@@ -107,6 +116,7 @@ getQuestions('js/questions.json')
       nextBtn.classList.remove('confirm');
     }
     
+    // Validate quiz
     function validate() {
       if (!answers[0].classList.contains('disabled')) {
         document.querySelector('.warning').classList.add('show');
@@ -118,6 +128,7 @@ getQuestions('js/questions.json')
     
     nextBtn.addEventListener('click', validate)
     
+    // Results output
     function finish() {
       resultsPage.classList.add('finish');
       scoreElement.innerHTML = `${score} / ${questions.length}`;
